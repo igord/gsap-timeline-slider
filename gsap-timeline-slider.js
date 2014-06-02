@@ -28,13 +28,17 @@
 		height: '1px',
 		marginBottom: '3px',
 		marginLeft: '6px',
-		display: 'inline-block',
+		verticalAlign: 'middle',
+		display: 'inline-block'
 	    },
 	    thumb: {
 		backgroundColor: 'black',
 		width: '2px',
 		height: '9px',
-		top: '1px',
+		padding: 0,
+		margin: 0,
+		top: '7px',
+		verticalAlign: 'top',
 		display: 'inline-block',
 		position: 'relative'
 	    },
