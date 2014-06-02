@@ -8,7 +8,7 @@ Lightweight slider for [GSAP] Timeline. Clean JavaScript, no external dependenci
   - Works in all modern browsers, IE9+
 
 ## Example
-```js
+```
 ...
 <div id="container"></div>
 <script src="TimelineMax.js"></script>
