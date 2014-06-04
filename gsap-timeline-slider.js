@@ -17,6 +17,7 @@
 		userSelect: 'none'
 	    },
 	    button: {
+		color: 'black',
 		margin: 0,
 		padding: '4px 0 0 4px',
 		verticalAlign: 'middle',
@@ -61,8 +62,10 @@
 	    this.button = document.createElement('div');
 	    this.rail = document.createElement('div');
 	    this.thumb = document.createElement('div');
+	    this.play = svgPlay(this.config.button.color);
+	    this.pause = svgPause(this.config.button.color);
 
-	    this.button.appendChild(play);
+	    this.button.appendChild(this.play);
 	    merge(this.button.style, this.config.button);
 	    this.el.appendChild(this.button);
 
@@ -88,7 +91,7 @@
 	},
 	toggle: function(p) {
 	    this.button.innerHTML = '';
-	    this.button.appendChild(p? play : pause);
+	    this.button.appendChild(p? this.play : this.pause);
 	},
 	onDown: function(ev) {
 	    if (ev.offsetX > this.button.offsetWidth) {
@@ -233,22 +236,20 @@
 	}
 	return el;
     };
-    function svgPlay() {
+    function svgPlay(color) {
 	var svg = createEl('svg', {width: 12, height: 16}),
-	    poly = createEl('polygon', {points: '0,0 12,8 0,16', style: 'fill:black;'});
+	    poly = createEl('polygon', {points: '0,0 12,8 0,16', style: 'fill:' + color});
 	svg.appendChild(poly);
 	
 	return svg;
     }
-    function svgPause() {
+    function svgPause(color) {
 	var svg = createEl('svg', {width: 12, height: 16}),
-	    rect = createEl('rect', {width: 5, height: 16, style: 'fill:black;'}),
-	    rect2 = createEl('rect', {x: 7, width: 5, height: 16, style: 'fill:black;'});
+	    rect = createEl('rect', {width: 5, height: 16, style: 'fill:' + color}),
+	    rect2 = createEl('rect', {x: 7, width: 5, height: 16, style: 'fill:' + color});
 	svg.appendChild(rect);
 	svg.appendChild(rect2);
 	
 	return svg;
     }
-    var play = svgPlay(),
-	pause = svgPause();
 })();
